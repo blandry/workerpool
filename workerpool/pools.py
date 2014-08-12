@@ -83,7 +83,7 @@ class WorkerPool(Queue):
     def shutdown(self):
         "Retire the workers."
         for i in xrange(self.size()):
-            self.put(SuicideJob())
+            self.shrink()
 
     def size(self):
         "Approximate number of active workers"
